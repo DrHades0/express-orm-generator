@@ -1,0 +1,29 @@
+{
+  "name": "express-orm-generator",
+  "version": "0.0.1",
+  "description": "A project generator with orm and two project models: vmc & api",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha src/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrHades0/express-orm-generator.git"
+  },
+  "keywords": [
+    "project",
+    "generator",
+    "express",
+    "api",
+    "vmc"
+  ],
+  "author": "Ezequiel Karottupullolil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrHades0/express-orm-generator/issues"
+  },
+  "homepage": "https://github.com/DrHades0/express-orm-generator#readme",
+  "dependencies": {
+    "commander": "^8.2.0"
+  }
+}
