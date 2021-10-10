@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/DrHades0/express-orm-generator#readme",
   "dependencies": {
-    "commander": "^8.2.0"
+    "commander": "^8.2.0",
+    "validator": "^13.6.0"
   }
 }
