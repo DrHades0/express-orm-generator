@@ -4,7 +4,7 @@
   "description": "A project generator with orm and two project models: vmc & api",
   "main": "src/index.js",
   "scripts": {
-    "test": " mocha src/test"
+	"test": "nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha ./src/test/"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,9 @@
     "commander": "^8.2.0",
     "is-valid-path": "^0.1.1",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }

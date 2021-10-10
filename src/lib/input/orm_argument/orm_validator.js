@@ -1,5 +1,5 @@
 module.exports = class OrmValidator{
-	constructor(){
-		
+	constructor(orm){
+
 	}
 }
