@@ -1,7 +1,7 @@
 module.export = class MissingArgument extends Error{
-	constructor(argument_missing){
+	constructor(name_argument_missing){
 		constructor()
 		this.name = `MissingArgument`;
-		this.message = `The ${argument_missing} is missing`;
+		this.message = `The ${name_argument_missing} is missing`;
 	}
 }
