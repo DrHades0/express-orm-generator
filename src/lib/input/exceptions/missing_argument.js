@@ -1,4 +1,4 @@
-module.export = class MissingArgument extends Error{
+module.exports  = class MissingArgument extends Error{
 	constructor(name_argument_missing){
 		constructor()
 		this.name = `MissingArgument`;

@@ -1,11 +1,11 @@
-const asssert 			= require("assert");
+const assert 			= require("assert");
 const {AssertionError} 	= require("assert");
-const InputManager 		= require("../lib/input/input-manager");
+const InputManager 		= require("../lib/input/input_manager");
 describe("basic input test",()=>{
 	it("all options",()=>{
 		const terminal_argument = {
 			name	:"test",
-			folder	:"folder/",
+			folder	:"/home/drhades/Desktop",
 			type	:"api",
 			orm		:"sequelize"
 		};

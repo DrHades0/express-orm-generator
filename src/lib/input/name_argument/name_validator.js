@@ -1,7 +1,7 @@
 const validator = require("validator");
 const MissingArgument = require("../exceptions/missing_argument");
 const InvalidArgument = require("../exceptions/invalid_argument");
-module.export = class NameValidator{
+module.exports  = class NameValidator{
 	constructor(name){
 		this.Name = name;
 		this.NotEmpty();

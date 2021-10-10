@@ -1,6 +1,6 @@
 const validator = require("validator");
 const MissingArgument = require("../exceptions/missing_argument");
-module.export = class TypeValidator{
+module.exports  = class TypeValidator{
 	constructor(type){
 		this.Type = type;
 		this.NotEmpty();

@@ -3,7 +3,7 @@ const InvalidArgument = require("../exceptions/invalid_argument");
 const validator 	= require("validator");
 const isValidPath	= require("is-valid-path");
 const fs 			= require("fs")
-module.export = class FolderValidator{
+module.exports  = class FolderValidator{
 	constructor(folder_argument){
 		this.FolderPath = folder_argument;
 
