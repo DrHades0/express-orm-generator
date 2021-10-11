@@ -11,11 +11,17 @@ module.exports = class ExpressStructureManager{
 	}
 
 	CreateFolder(){
+		/*
+			create project folder and create property folderDir
+		*/
 		fs.mkdirSync(`${this.path}/${this.name}`);
 		this.folderDir = `${this.path}/${this.name}`;
 	};
 
 	MakeApiStructure(){
+		/*
+			Create and api structure with express js
+		*/
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/core`);
 		fs.mkdirSync(`${this.folderDir}/src/api`);
@@ -23,6 +29,9 @@ module.exports = class ExpressStructureManager{
 	}
 
 	MakeMvcStructure(){
+		/*
+			Create and mvc structure with express js
+		*/
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/model`);
 		fs.mkdirSync(`${this.folderDir}/src/view`);
@@ -32,6 +41,9 @@ module.exports = class ExpressStructureManager{
 	}
 
 	MakeFolderStructure(){
+		/*
+			Compare type if api or mvc and create respective project structure
+		*/
 		if(this.type == "api"){
 			this.MakeApiStructure();
 			return;
