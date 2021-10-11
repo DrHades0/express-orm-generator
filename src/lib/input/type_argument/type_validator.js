@@ -5,7 +5,6 @@ module.exports  = class TypeValidator{
 	constructor(type){
 		this.Type = type;
 		this.NotEmpty();
-		this.ValidType();
 		this.MatchOneProjectStructure();
 	}
 
@@ -14,13 +13,6 @@ module.exports  = class TypeValidator{
 		if Type is empty throw error
 		*/
 		if(validator.isEmpty(this.Type)) throw new MissingArgument("type");
-	}
-
-	ValidType(){
-		/*
-		if Type is not alpha throw error
-		*/
-		if(!validator.isAlpha(this.Type)) throw new InvalidArgument("type");
 	}
 
 	MatchOneProjectStructure(){
