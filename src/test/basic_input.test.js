@@ -33,18 +33,9 @@ describe("basic input test",()=>{
 				type	:"api",
 				orm		:"sequelize"
 			};
-			try{
-				const inputManager = new InputManager(terminal_argument);
-				assert.fail("expected an Missing Arguments error");
-			}catch(error){
-				if(error instanceof AssertionError){
-					throw error;
-				}
-
-				assert.equal(error.name, "MissingArgument");
-				assert.equal(error.message, "The folder argument is missing")
-
-			}
+			const error_expected = new MissingArgument("folder");
+			const action = ()=> new InputManager(terminal_argument);
+			assert.throws(action, error_expected )
 		});
 		it("missing type",()=>{
 			const terminal_argument = {
@@ -52,16 +43,9 @@ describe("basic input test",()=>{
 				folder	:"folder/",
 				orm		:"sequelize"
 			};
-			try{
-				const inputManager = new InputManager(terminal_argument);
-				assert.fail("expected an Missing Arguments error");
-			}catch(error){
-				if(error instanceof AssertionError){
-					throw error;
-				}
-				assert.equal(error.name, "MissingArgument");
-				assert.equal(error.message, "The type argument is missing")
-			}
+			const error_expected = new MissingArgument("type");
+			const action = ()=> new InputManager(terminal_argument);
+			assert.throws(action, error_expected )
 		});
 	});
 })
