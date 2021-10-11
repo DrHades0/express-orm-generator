@@ -15,13 +15,13 @@ describe("type validator", ()=>{
 		const none 			= "none";
 		const invalid_type 	= "crud";
 		it("mvc type",()=>{
-			const validate = new TypeValidator(mvc);
+			new TypeValidator(mvc);
 		})
 		it("api type", ()=>{
-			const validate = new TypeValidator(api);
+			new TypeValidator(api);
 		})
 		it("none type", ()=>{
-			const validate = new TypeValidator(none);
+			new TypeValidator(none);
 		})
 
 		it("no match type", ()=>{
