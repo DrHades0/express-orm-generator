@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index",
-    "test": "nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha ./src/test/"
+    "test": "nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha ./src/test/",
+	"fast_test":"mocha ./src/test"
   },
   "repository": {
     "type": "git",

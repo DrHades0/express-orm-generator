@@ -26,4 +26,22 @@ describe("NameValidator test",()=>{
 
 		assert.throws(action,expected)
 	});
+	describe("name charset", ()=>{
+		const alpha_name = "abcdf";
+		const alphanumeri_name ="abcd5"
+		const invalid_name = "as_df";
+
+		it("no alphanumeric name",()=>{
+			const action = ()=>new NameValidator(invalid_name);
+			const expected = new InvalidArgument("name", "the name has to be alphanumeric");
+
+			assert.throws(action,expected);
+		});
+		it("alpha name", ()=>{
+			new NameValidator(alpha_name);
+		})
+		it("alphanumeric name", ()=>{
+			new NameValidator(alphanumeri_name);
+		})
+	});
 })
