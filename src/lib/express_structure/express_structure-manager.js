@@ -36,10 +36,12 @@ module.exports = class ExpressStructureManager{
 		*/
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/model`);
-		fs.mkdirSync(`${this.folderDir}/src/view`);
+		fs.mkdirSync(`${this.folderDir}/src/views`);
 		fs.mkdirSync(`${this.folderDir}/src/controller`);
 		fs.mkdirSync(`${this.folderDir}/src/routes`);
-		fs.appendFile(`${this.folderDir}/src/index.js`);
+		fs.writeFile(`${this.folderDir}/src/index.js`,"", (params)=>{
+			console.log(params)
+		});
 	}
 
 	MakeFolderStructure(){
