@@ -1,13 +1,12 @@
 const ExpressStructureManager = require("../lib/express_structure/express_structure-manager");
-const RemoveProject = require("./utils/remove_project_folder");
 const assert = require("assert");
 const fs 	= require("fs");
 describe("generate project test",()=>{
 	const test_path = "src/test"
-	const test_folder_name = "test_folder";
-	RemoveProject(`${test_path}/${test_folder_name}`);
+
 	describe("create api project ", ()=>{
 		const type = "api";
+		const test_folder_name = "api_test_folder";
 		const expressStructure = new ExpressStructureManager(test_path,test_folder_name,type);
 
 		it("folder exist", ()=>{
@@ -37,8 +36,8 @@ describe("generate project test",()=>{
 	})
 
 	describe("create api project ", ()=>{
- 		RemoveProject(`${test_path}/${test_folder_name}`);
 		const type = "mvc";
+		const test_folder_name = "mvc_test_folder";
 		const expressStructure = new ExpressStructureManager(test_path,test_folder_name,type);
 
 		it("folder exist", ()=>{
@@ -51,15 +50,25 @@ describe("generate project test",()=>{
 			assert.equal(state, true);
 		});
 
-		it("core exist", ()=>{
-			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/core`);
+		it("model exist", ()=>{
+			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/model`);
 			assert.equal(state, true);
 		});
 
-		it("api exist", ()=>{
-			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/api`);
+		it("views exist", ()=>{
+			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/views`);
 			assert.equal(state, true);
 		});
+
+		it("controller exist", ()=>{
+			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/controller`);
+			assert.equal(state, true);
+		});
+		it("routes exist", ()=>{
+			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/routes`);
+			assert.equal(state, true);
+		});
+
 
 		it("index.js exist", ()=>{
 			const state = fs.existsSync(`${test_path}/${test_folder_name}/src/index.js`);
