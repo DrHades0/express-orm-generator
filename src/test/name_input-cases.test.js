@@ -13,20 +13,14 @@ describe("NameValidator test",()=>{
 	});
 
 	it("name length is more than 10", ()=>{
-		const nameLengthMoreThan10 = randomstring.generate({
-			length: 4,
-			charset:"alphanumeric"
-		});
+		const nameLengthMoreThan10 = "abcdfgfsgi12";
 		const action 	= ()=> new NameValidator(nameLengthMoreThan10);
 		const expected 	= new InvalidArgument("name","the name has more than teen(10) characters");
 
 		assert.throws(action,expected);
 	});
 	it("name length is less than 5", ()=>{
-		const nameLengthLessThan5 = randomstring.generate({
-			length: 4,
-			charset:"alphanumeric"
-		});
+		const nameLengthLessThan5 = "abc";
 		const action 	= ()=>new NameValidator(nameLengthLessThan5);
 		const expected 	= new InvalidArgument("name", "the name has less than five(5) characters");
 
