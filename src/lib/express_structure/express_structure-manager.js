@@ -5,7 +5,7 @@ module.exports = class ExpressStructureManager{
 		this.path = folderPath;
 		this.name = folderName;
 		this.type = projectType;
-		this.folderDir = "";
+		this.folderDir = `${this.path}/${this.name}`;
 		this.CreateFolder();
 		this.MakeFolderStructure();
 	}
@@ -15,7 +15,7 @@ module.exports = class ExpressStructureManager{
 			create project folder and create property folderDir
 		*/
 		fs.mkdirSync(`${this.path}/${this.name}`);
-		this.folderDir = `${this.path}/${this.name}`;
+
 	};
 
 	MakeApiStructure(){
@@ -25,7 +25,9 @@ module.exports = class ExpressStructureManager{
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/core`);
 		fs.mkdirSync(`${this.folderDir}/src/api`);
-		fs.appendFile(`${this.folderDir}/src/index.js`);
+		fs.writeFile(`${this.folderDir}/src/index.js`,"", (params)=>{
+			console.log(params)
+		});
 	}
 
 	MakeMvcStructure(){
