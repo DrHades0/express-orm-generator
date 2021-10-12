@@ -5,7 +5,7 @@ const MissingArgument 	= require("../lib/input/exceptions/missing_argument");
 describe("basic input test",()=>{
 	it("all options",()=>{
 		const terminal_argument = {
-			name	:"test",
+			name	:"testb",
 			folder	:"/home/drhades/Desktop",
 			type	:"api",
 			orm		:"sequelize"
