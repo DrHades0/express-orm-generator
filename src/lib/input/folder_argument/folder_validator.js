@@ -6,7 +6,6 @@ const fs 			= require("fs")
 module.exports  = class FolderValidator{
 	constructor(folder_argument){
 		this.FolderPath = folder_argument;
-
 		this.NotEmpty();
 		this.ValidFolderPath();
 		this.IhavePermissionInFolderPath();
@@ -17,7 +16,7 @@ module.exports  = class FolderValidator{
 	}
 
 	ValidFolderPath(){
-		if(!isValidPath(this.FolderPath)) throw new InvalidArgument("folder");
+		if(!isValidPath(this.FolderPath)) throw new InvalidArgument("folder","the folder is not a valid path");
 	}
 
 	IhavePermissionInFolderPath(){

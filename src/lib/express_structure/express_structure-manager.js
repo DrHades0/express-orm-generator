@@ -20,7 +20,7 @@ module.exports = class ExpressStructureManager{
 
 	MakeApiStructure(){
 		/*
-			Create and api structure with express js
+			Create a api structure with express js
 		*/
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/core`);
@@ -30,7 +30,7 @@ module.exports = class ExpressStructureManager{
 
 	MakeMvcStructure(){
 		/*
-			Create and mvc structure with express js
+			Create a mvc structure with express js
 		*/
 		fs.mkdirSync(`${this.folderDir}/src`);
 		fs.mkdirSync(`${this.folderDir}/src/model`);

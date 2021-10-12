@@ -22,8 +22,7 @@ module.exports  = class TypeValidator{
 		*/
 		if(this.Type == "api")  return;
 		if(this.Type == "mvc")  return;
-		if(this.Type == "none") return;
 
-		throw new InvalidArgument("type")
+		throw new InvalidArgument("type", "no match type")
 	}
 }

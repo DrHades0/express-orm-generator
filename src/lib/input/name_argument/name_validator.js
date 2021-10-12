@@ -19,7 +19,7 @@ module.exports  = class NameValidator{
 		/*
 			check if a Alphanumeric
 		*/
-		if(!validator.isAlphanumeric(this.Name)) throw new InvalidArgument("name");
+		if(!validator.isAlphanumeric(this.Name)) throw new InvalidArgument("name", "the name has to be alphanumeric");
 	}
 
 }
