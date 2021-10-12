@@ -11,4 +11,13 @@ module.exports  = class InputManager{
 		this.Input_type 	= new TypeValidator(terminal_arguments.type);
 		this.Input_orm		= new OrmValidator(terminal_arguments.orm);
 	}
+
+	getArray(){
+		return {
+			"name": this.Input_name,
+			"folder":this.Input_folder,
+			"type":this.Input_type,
+			"orm":this.Input_orm
+		};
+	}
 }
