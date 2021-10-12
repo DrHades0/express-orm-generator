@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.29% </span>
+                <span class="strong">82.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/17</span>
+                <span class='fraction'>14/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/15</span>
+                <span class='fraction'>14/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,23 +93,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,24 +121,24 @@ const validator 	= require("validator");
 const isValidPath	= require("is-valid-path");
 const fs 			= require("fs")
 module.exports  = class FolderValidator{
-<span class="fstat-no" title="function not covered" >	co</span>nstructor(folder_argument){
-<span class="cstat-no" title="statement not covered" >		this.FolderPath = folder_argument;</span>
-<span class="cstat-no" title="statement not covered" >		this.NotEmpty();</span>
-<span class="cstat-no" title="statement not covered" >		this.ValidFolderPath();</span>
-<span class="cstat-no" title="statement not covered" >		this.IhavePermissionInFolderPath();</span>
+	constructor(folder_argument){
+		this.FolderPath = folder_argument;
+		this.NotEmpty();
+		this.ValidFolderPath();
+		this.IhavePermissionInFolderPath();
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	No</span>tEmpty(){
-<span class="cstat-no" title="statement not covered" >		if(validator.isEmpty(this.FolderPath)) <span class="cstat-no" title="statement not covered" >throw new MissingArgument("folder");</span></span>
+	NotEmpty(){
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(validator.isEmpty(this.FolderPath)) <span class="cstat-no" title="statement not covered" >throw new MissingArgument("folder");</span>
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	Va</span>lidFolderPath(){
-<span class="cstat-no" title="statement not covered" >		if(!isValidPath(this.FolderPath)) <span class="cstat-no" title="statement not covered" >throw new InvalidArgument("folder","the folder is not a valid path");</span></span>
+	ValidFolderPath(){
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(!isValidPath(this.FolderPath)) <span class="cstat-no" title="statement not covered" >throw new InvalidArgument("folder","the folder is not a valid path");</span>
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	Ih</span>avePermissionInFolderPath(){
-<span class="cstat-no" title="statement not covered" >		try{</span>
-<span class="cstat-no" title="statement not covered" >			fs.accessSync(this.FolderPath, fs.constants.F_OK);</span>
+	IhavePermissionInFolderPath(){
+		try{
+			fs.accessSync(this.FolderPath, fs.constants.F_OK);
 		}catch(error){
 <span class="cstat-no" title="statement not covered" >			throw new Error("NotPermissionForUseFolder");</span>
 		}
@@ -151,7 +151,7 @@ module.exports  = class FolderValidator{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 12 2021 18:00:57 GMT-0300 (Argentina Standard Time)
+                at Tue Oct 12 2021 18:01:53 GMT-0300 (Argentina Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

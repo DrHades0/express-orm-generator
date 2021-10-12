@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.52% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -102,79 +102,79 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const validator = require("validator");
 const MissingArgument = require("../exceptions/missing_argument");
 const InvalidArgument = require("../exceptions/invalid_argument");
 module.exports  = class NameValidator{
-<span class="fstat-no" title="function not covered" >	co</span>nstructor(name){
-<span class="cstat-no" title="statement not covered" >		this.Name = name;</span>
-<span class="cstat-no" title="statement not covered" >		this.NotEmpty();</span>
-<span class="cstat-no" title="statement not covered" >		this.IsAlphanumeric();</span>
-<span class="cstat-no" title="statement not covered" >		this.IsLengthLessThan10();</span>
-<span class="cstat-no" title="statement not covered" >		this.IsLengthMoreThan5();</span>
+	constructor(name){
+		this.Name = name;
+		this.NotEmpty();
+		this.IsAlphanumeric();
+		this.IsLengthLessThan10();
+		this.IsLengthMoreThan5();
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	No</span>tEmpty(){
+	NotEmpty(){
 		 /*
 		 check is empty
 		 */
-<span class="cstat-no" title="statement not covered" >		if(validator.isEmpty(this.Name)) <span class="cstat-no" title="statement not covered" >throw new MissingArgument("name");</span></span>
+		if(validator.isEmpty(this.Name)) throw new MissingArgument("name");
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	Is</span>Alphanumeric(){
+	IsAlphanumeric(){
 		/*
 			check if a Alphanumeric
 		*/
-<span class="cstat-no" title="statement not covered" >		if(!validator.isAlphanumeric(this.Name)) <span class="cstat-no" title="statement not covered" >throw new InvalidArgument("name", "the name has to be alphanumeric");</span></span>
+		if(!validator.isAlphanumeric(this.Name)) throw new InvalidArgument("name", "the name has to be alphanumeric");
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	Is</span>LengthLessThan10(){
+	IsLengthLessThan10(){
 		/*
 			if name length more than 10(teen) throw InvalidArgument
 		*/
-<span class="cstat-no" title="statement not covered" >		if(!validator.isLength(this.Name, {max:10})) <span class="cstat-no" title="statement not covered" >throw new InvalidArgument("name","the name has more than teen(10) characters");</span></span>
+		if(!validator.isLength(this.Name, {max:10})) throw new InvalidArgument("name","the name has more than teen(10) characters");
 	}
 &nbsp;
-<span class="fstat-no" title="function not covered" >	Is</span>LengthMoreThan5(){
+	IsLengthMoreThan5(){
 		/*
 			if name length less than 5(five) throw InvalidArgument
 		*/
-<span class="cstat-no" title="statement not covered" >		if(!validator.isLength(this.Name, {min:5})) <span class="cstat-no" title="statement not covered" >throw new InvalidArgument("name","the name has less than five(5) characters");</span></span>
+		if(!validator.isLength(this.Name, {min:5})) throw new InvalidArgument("name","the name has less than five(5) characters");
 	}
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -184,7 +184,7 @@ module.exports  = class NameValidator{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 12 2021 18:00:57 GMT-0300 (Argentina Standard Time)
+                at Tue Oct 12 2021 18:01:53 GMT-0300 (Argentina Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
