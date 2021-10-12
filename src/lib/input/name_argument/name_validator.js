@@ -28,13 +28,13 @@ module.exports  = class NameValidator{
 		/*
 			if name length more than 10(teen) throw InvalidArgument
 		*/
-		if(!validator.isLength({max:10})) throw new InvalidArgument("name","the name has more than teen(10) characters");
+		if(!validator.isLength(this.Name, {max:10})) throw new InvalidArgument("name","the name has more than teen(10) characters");
 	}
 
 	IsLengthMoreThan5(){
 		/*
 			if name length less than 5(five) throw InvalidArgument
 		*/
-		if(!validator.isLength({min:5})) throw new InvalidArgument("name","the name has less than five(5) characters");
+		if(!validator.isLength(this.Name, {min:5})) throw new InvalidArgument("name","the name has less than five(5) characters");
 	}
 }
