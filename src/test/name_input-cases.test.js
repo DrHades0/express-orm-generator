@@ -5,14 +5,9 @@ const InvalidArgument = require("../lib/input/exceptions/invalid_argument");
 const NameValidator   = require("../lib/input/name_argument/name_validator")
 
 describe("NameValidator test",()=>{
-	it("name is undefined", ()=>{
-		const action 	= ()=> new NameValidator();
-		const expected 	= new MissingArgument("name");
-		assert.throws(action, expected);
-	});
 	it("name is empty",()=>{
 		const action 	= ()=> new NameValidator("");
-		const expected 	= new InvalidArgument("name", "name empty");
+		const expected 	= new MissingArgument("name");
 
 		assert.throws(action,expected);
 	});

@@ -6,6 +6,8 @@ module.exports  = class NameValidator{
 		this.Name = name;
 		this.NotEmpty();
 		this.IsAlphanumeric();
+		this.IsLengthLessThan10();
+		this.IsLengthMoreThan5();
 	}
 
 	NotEmpty(){
@@ -22,4 +24,17 @@ module.exports  = class NameValidator{
 		if(!validator.isAlphanumeric(this.Name)) throw new InvalidArgument("name", "the name has to be alphanumeric");
 	}
 
+	IsLengthLessThan10(){
+		/*
+			if name length more than 10(teen) throw InvalidArgument
+		*/
+		if(!validator.isLength({max:10})) throw new InvalidArgument("name","the name has more than teen(10) characters");
+	}
+
+	IsLengthMoreThan5(){
+		/*
+			if name length less than 5(five) throw InvalidArgument
+		*/
+		if(!validator.isLength({min:5})) throw new InvalidArgument("name","the name has less than five(5) characters");
+	}
 }

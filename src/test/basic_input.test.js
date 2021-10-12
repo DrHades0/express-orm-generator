@@ -11,7 +11,7 @@ describe("basic input test",()=>{
 			orm		:"sequelize"
 		};
 
-		const inputManager = new InputManager(terminal_argument);
+		new InputManager(terminal_argument);
 	});
 
 	describe("missing argument",()=>{
