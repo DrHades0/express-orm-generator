@@ -23,7 +23,9 @@ module.exports  = class FolderValidator{
 		try{
 			fs.accessSync(this.FolderPath, fs.constants.F_OK);
 		}catch(error){
-			throw new Error("NotPermissionForUseFolder");
+			throw new InvalidArgument("folder", "the path does not allow to be written");
 		}
 	}
+
+	
 }
