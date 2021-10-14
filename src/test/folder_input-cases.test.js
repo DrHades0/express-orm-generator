@@ -14,13 +14,14 @@ describe("folder validator test", ()=>{
 		const invalidPath = ".#/";
 
 		const action 	= ()=>new FolderValidator(invalidPath);
-		const expected 	= new InvalidArgument("folder", "folder argument is not path");
+		const expected 	= new InvalidArgument("folder", "the folder argument is not a valid path");
 
 		assert.throws(action,expected);
 	});
+
 	it("pass no permisson folder path", ()=>{
 		const noPermissonsPath = "/" // root directory
-		const action 	= ()=>new FolderValidator(noPermissonsPath);
+		const action 	= ()=> new FolderValidator(noPermissonsPath);
 		const expected  = new InvalidArgument("folder", "the path passed by folder argument not allow to be written");
 
 		assert.throws(action,expected);

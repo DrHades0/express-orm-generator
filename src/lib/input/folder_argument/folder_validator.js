@@ -12,20 +12,25 @@ module.exports  = class FolderValidator{
 	}
 
 	NotEmpty(){
-		if(validator.isEmpty(this.FolderPath)) throw new MissingArgument("folder");
+		if(validator.isEmpty(this.FolderPath)) throw new InvalidArgument("folder", "folder argument cant be empty");
 	}
 
 	ValidFolderPath(){
-		if(!isValidPath(this.FolderPath)) throw new InvalidArgument("folder","the folder is not a valid path");
+		if(!isValidPath(this.FolderPath)) throw new InvalidArgument("folder","the folder argument is not a valid path");
 	}
 
 	IhavePermissionInFolderPath(){
+		// try{
+		// 	fs.accessSync(this.FolderPath, fs.constants.F_OK);
+		// }catch(error){
+		// 	throw new InvalidArgument("folder", "the path does not allow to be written");
+		// }
 		try{
-			fs.accessSync(this.FolderPath, fs.constants.F_OK);
-		}catch(error){
-			throw new InvalidArgument("folder", "the path does not allow to be written");
+			fs.accessSync(this.FolderPath, fs.constants.R_OK | fs.constants.W_OK);
+		}catch(err){
+			throw new InvalidArgument("folder", "the path passed by folder argument not allow to be written");
 		}
 	}
 
-	
+
 }
