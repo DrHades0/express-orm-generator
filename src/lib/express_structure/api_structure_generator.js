@@ -37,12 +37,16 @@ module.exports = class ApiStructureGenerator{
 	}
 	CreateApiFolder(){
 		/*
-			Create api, routes and middlewares folder and
+			Create api, routes, middlewares, scripts and controller folder and
 			create app.js
 		*/
 		const coreApiPath = path.join(this.srcFolderPath, "api");
 		fs.mkdirSync(coreApiPath);
 		this.CreateRoutesFolder(coreApiPath);
+		this.CreateMiddlewaresFolder(coreApiPath);
+		this.CreateControllerFolder(coreApiPath);
+
+		this.CreateExpressApp(coreApiPath);
 	}
 
 	CreateRoutesFolder(api_path){
@@ -54,6 +58,19 @@ module.exports = class ApiStructureGenerator{
 
 		const indexRouterPath = path.join(routeFolderPath, "indexRouter.js");
 		fs.writeFileSync(indexRouterPath, "");
+	}
+
+	CreateMiddlewaresFolder(api_path){
+		const middlewareRoutePath = path.join(api_path, "middlewares");
+		fs.mkdirSync(middlewareRoutePath);
+	}
+
+	CreateControllerFolder(api_path){
+		const controllerFolderPath = path.join(api_path, "controllers");
+		fs.mkdirSync(controllerFolderPath);
+	}
+
+	CreateExpressApp(api_path){
 	}
 
 }
