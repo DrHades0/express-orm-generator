@@ -45,6 +45,7 @@ module.exports = class ApiStructureGenerator{
 		this.CreateRoutesFolder(coreApiPath);
 		this.CreateMiddlewaresFolder(coreApiPath);
 		this.CreateControllerFolder(coreApiPath);
+		this.CreateServicesFolder(coreApiPath);
 
 		this.CreateExpressApp(coreApiPath);
 	}
