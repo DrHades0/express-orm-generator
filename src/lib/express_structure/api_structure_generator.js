@@ -40,38 +40,41 @@ module.exports = class ApiStructureGenerator{
 			Create api, routes, middlewares, scripts and controller folder and
 			create app.js
 		*/
-		const coreApiPath = path.join(this.srcFolderPath, "api");
-		fs.mkdirSync(coreApiPath);
-		this.CreateRoutesFolder(coreApiPath);
-		this.CreateMiddlewaresFolder(coreApiPath);
-		this.CreateControllerFolder(coreApiPath);
-		this.CreateServicesFolder(coreApiPath);
-
-		this.CreateExpressApp(coreApiPath);
+		this.apiFolderPath = path.join(this.srcFolderPath, "api");
+		fs.mkdirSync(this.apiFolderPath);
+		this.CreateRoutesFolder();
+		this.CreateMiddlewaresFolder();
+		this.CreateControllerFolder();
+		this.CreateServicesFolder();
+		this.CreateExpressApp();
 	}
 
-	CreateRoutesFolder(api_path){
+	CreateRoutesFolder(){
 		/*
 		 	Make routes folder with indexRouter
 		*/
-		const routeFolderPath = path.join(api_path, "routes");
+		const routeFolderPath = path.join( this.apiFolderPath, "routes");
 		fs.mkdirSync(routeFolderPath);
 
 		const indexRouterPath = path.join(routeFolderPath, "indexRouter.js");
 		fs.writeFileSync(indexRouterPath, "");
 	}
 
-	CreateMiddlewaresFolder(api_path){
-		const middlewareRoutePath = path.join(api_path, "middlewares");
+	CreateMiddlewaresFolder(){
+		const middlewareRoutePath = path.join( this.apiFolderPath, "middlewares");
 		fs.mkdirSync(middlewareRoutePath);
 	}
 
-	CreateControllerFolder(api_path){
-		const controllerFolderPath = path.join(api_path, "controllers");
+	CreateControllerFolder(){
+		const controllerFolderPath = path.join( this.apiFolderPath, "controllers");
 		fs.mkdirSync(controllerFolderPath);
 	}
 
-	CreateExpressApp(api_path){
+	CreateServicesFolder(){
+		const serviceFolderPath = path.join(this.apiFolderPath, "services");
+		fs.mkdirSync(serviceFolderPath)
+	}
+	CreateExpressApp(){
 	}
 
 }
