@@ -14,11 +14,10 @@ describe("generate project integration test",()=>{
 			Generate Api Structure and test the exist of
 			folders
 		*/
-		const type = "api";
 		const test_folderName = "api_test_folder";
 		const work_folderPath = path.join(test_path,test_folderName);
 		RemoveProjectFolder(work_folderPath); //delete if already exist test folder
-		
+
 		new ApiStructureGenerator(test_path,test_folderName);
 
 		it("correct folder creation", ()=>{
@@ -50,8 +49,8 @@ describe("generate project integration test",()=>{
 				verify if api folder is created with all
 				these folder inside [middleware, services, controller, routes]
 			*/
-			const path_toTest = path.join(work_folderPath,"api");
-			const state = fs.existsSync(path_toTest);
+			console.log(work_folderPath)
+			const state = fs.existsSync(work_folderPath);
 			assert.equal(state, true);
 			it("api folder contains middleware folder", ()=>{
 				const middlewarePath = path.join(path_toTest, "middleware");
