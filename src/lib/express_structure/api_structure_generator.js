@@ -26,6 +26,8 @@ module.exports = class ApiStructureGenerator{
 		fs.mkdirSync(this.srcFolderPath);
 		this.CreateCoreFolder();
 		this.CreateApiFolder();
+
+		this.CreateIndexFile();
 	}
 
 	CreateCoreFolder(){
@@ -61,6 +63,9 @@ module.exports = class ApiStructureGenerator{
 	}
 
 	CreateMiddlewaresFolder(){
+		/*
+			Create a middleware folder in api folder
+		*/
 		const middlewareRoutePath = path.join( this.apiFolderPath, "middlewares");
 		fs.mkdirSync(middlewareRoutePath);
 	}
@@ -75,6 +80,14 @@ module.exports = class ApiStructureGenerator{
 		fs.mkdirSync(serviceFolderPath)
 	}
 	CreateExpressApp(){
+	}
+
+	CreateIndexFile(){
+		/*
+			Create a index.js file in src folder
+		*/
+		const indexFile_Path = path.join(this.srcFolderPath, "index.js")
+		fs.writeFileSync(indexFile_Path, "");
 	}
 
 }
