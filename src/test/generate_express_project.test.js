@@ -17,8 +17,9 @@ describe("generate project integration test",()=>{
 		const type = "api";
 		const test_folderName = "api_test_folder";
 		const work_folderPath = path.join(test_path,test_folderName);
-		RemoveProjectFolder(work_folderPath);
-		const apiStructureGenerator = new ApiStructureGenerator(test_path,test_folderName);
+		RemoveProjectFolder(work_folderPath); //delete if already exist test folder
+		
+		new ApiStructureGenerator(test_path,test_folderName);
 
 		it("correct folder creation", ()=>{
 			// value if root project folder is created

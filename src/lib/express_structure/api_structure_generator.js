@@ -10,7 +10,7 @@ module.exports = class ApiStructureGenerator{
 
 		this.CreateFolder();
 		this.CreateSrcFolder();
-		this.WriteExpressApp();
+		// this.WriteExpressApp();
 	}
 
 
