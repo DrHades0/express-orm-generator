@@ -2,6 +2,7 @@ const {Command} = require("commander");
 const program = new Command();
 
 const InputManager = require("./lib/input/input_manager");
+const ApiStructureGenerator = require("./lib/express_structure/api_structure_generator")
 program.version('0.0.1');
 
 program
@@ -15,3 +16,6 @@ program.parse(process.argv);
 const input = program.opts();
 
 const inputManager = new InputManager(input);
+const args = inputManager.getArray();
+
+new ApiStructureGenerator(args.folder,args.name);

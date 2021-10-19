@@ -6,10 +6,10 @@ const TerminalArgumentsValidator = require("./terminal-arguments_validator");
 module.exports  = class InputManager{
 	constructor(terminal_arguments){
 		new TerminalArgumentsValidator(terminal_arguments);
-		this.Input_name 	= new NameValidator(terminal_arguments.name);
-		this.Input_folder 	= new FolderValidator(terminal_arguments.folder);
-		this.Input_type 	= new TypeValidator(terminal_arguments.type);
-		this.Input_orm		= new OrmValidator(terminal_arguments.orm);
+		this.Input_name 	= new NameValidator(terminal_arguments.name).Name;
+		this.Input_folder 	= new FolderValidator(terminal_arguments.folder).FolderPath;
+		this.Input_type 	= new TypeValidator(terminal_arguments.type).Type;
+		this.Input_orm		= new OrmValidator(terminal_arguments.orm).Orm;
 	}
 
 	getArray(){
