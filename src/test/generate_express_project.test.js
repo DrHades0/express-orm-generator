@@ -7,7 +7,7 @@ describe("generate project integration test",()=>{
 	/*
 		Verify correct the structure generators
 	*/
-	const test_path = "src/test"
+	const test_path = path.join("src","test")
 
 	describe("integration  api project generator ", ()=>{
 		/*
@@ -26,49 +26,58 @@ describe("generate project integration test",()=>{
 			assert.equal(state, true);
 		});
 
-		it("correct src folder creation", ()=>{
+		describe("correct src folder creation", ()=>{
 			/*
 				verify if [src] folder is created into work_folderPath
 			*/
 			const path_toTest = path.join(work_folderPath,"src")
 			const state = fs.existsSync(path_toTest);
 			assert.equal(state, true);
+			it("correct core folder creation", ()=>{
+				/*
+					verify if [core] folder is created into work_folderPath
+				*/
+				const core_folderPath = path.join(path_toTest,"core");
+				const state = fs.existsSync(path_toTest);
+				assert.equal(state, true);
+			});
+			it("correct api folder creation", ()=>{
+				const api_folderPath = path.join(path_toTest,"api");
+				const state = fs.existsSync(api_folderPath);
+				assert.equal(state, true);
+			})
 		});
 
-		it("correct core folder creation", ()=>{
-			/*
-				verify if [core] folder is created into work_folderPath
-			*/
-			const path_toTest = path.join(work_folderPath,"core")
-			const state = fs.existsSync(path_toTest);
-			assert.equal(state, true);
-		});
+
 
 		describe("correct api folder creation", ()=>{
 			/*
 				verify if api folder is created with all
 				these folder inside [middleware, services, controller, routes]
 			*/
-			console.log(work_folderPath)
-			const state = fs.existsSync(work_folderPath);
+			const src_path = path.join(work_folderPath, "src");
+			const apiFolder_path = path.join(src_path, "api");
+
+			const state = fs.existsSync(apiFolder_path);
 			assert.equal(state, true);
+
 			it("api folder contains middleware folder", ()=>{
-				const middlewarePath = path.join(path_toTest, "middleware");
+				const middlewarePath = path.join(apiFolder_path, "middlewares");
 				const state = fs.existsSync(middlewarePath);
 				assert.equal(state,true);
 			})
 			it("api folder contains routes folder", ()=>{
-				const middlewarePath = path.join(path_toTest, "routes");
+				const middlewarePath = path.join(apiFolder_path, "routes");
 				const state = fs.existsSync(middlewarePath);
 				assert.equal(state,true);
 			});
 			it("api folder contains services folder", ()=>{
-				const middlewarePath = path.join(path_toTest, "services");
+				const middlewarePath = path.join(apiFolder_path, "services");
 				const state = fs.existsSync(middlewarePath);
 				assert.equal(state,true);
 			})
 			it("api folder contains controller folder", ()=>{
-				const middlewarePath = path.join(path_toTest, "controller");
+				const middlewarePath = path.join(apiFolder_path, "controllers");
 				const state = fs.existsSync(middlewarePath);
 				assert.equal(state,true);
 			})
@@ -76,7 +85,7 @@ describe("generate project integration test",()=>{
 
 		it("index.js exist", ()=>{
 			const srcPath = path.join(work_folderPath, "src");
-			const indexPath = path.join(srcPath, "index.js")
+			const indexPath = path.join(srcPath, "index.js");
 			const state = fs.existsSync(indexPath);
 			assert.equal(state, true);
 		});
