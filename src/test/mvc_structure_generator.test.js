@@ -33,5 +33,5 @@ describe("mvc structure generator", ()=>{
 		const controllerFolder_path = path.join(srcFolder_path, "controller");
 		const state = fs.existsSync(controllerFolder_path);
 		assert.equal(state, true);
-	})
+	});
 });
