@@ -9,6 +9,7 @@ describe("mvc structure generator", ()=>{
 	const workFolder_Path = path.join(test_path,test_folderName);
 	const srcFolder_path = path.join(workFolder_Path, "src");
 	RemoveProjectFolder(workFolder_Path);
+
 	new MvcStructureGenerator(test_path,test_folderName);
 	it("is folder created",()=>{
 		const state = fs.existsSync(workFolder_Path);
@@ -19,17 +20,17 @@ describe("mvc structure generator", ()=>{
 		assert.equal(state, true);
 	});
 	it("model folder was created", ()=>{
-		const modelFolder_path = path.join(this.srcFolder_path, "model");
+		const modelFolder_path = path.join(srcFolder_path, "model");
 		const state = fs.existsSync(modelFolder_path);
 		assert.equal(state, true);
 	});
 	it("view folder was created", ()=>{
-		const viewFolder_path = path.join(this.srcFolder_path, "view");
+		const viewFolder_path = path.join(srcFolder_path, "view");
 		const state = fs.existsSync(viewFolder_path);
 		assert.equal(state, true);
 	});
 	it("controller folder was created", ()=>{
-		const controllerFolder_path = path.join(this.srcFolder_path, "controller");
+		const controllerFolder_path = path.join(srcFolder_path, "controller");
 		const state = fs.existsSync(controllerFolder_path);
 		assert.equal(state, true);
 	})
