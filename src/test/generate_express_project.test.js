@@ -89,5 +89,9 @@ describe("generate project integration test",()=>{
 			const state = fs.existsSync(indexPath);
 			assert.equal(state, true);
 		});
+	});
+	describe("integration  mvc project generator", ()=>{
+		const test_folderName = "mvc_test_folder";
+		const workFolder_path = path.join(test_path, test_folderName);
 	})
 })

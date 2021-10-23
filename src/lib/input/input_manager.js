@@ -5,19 +5,22 @@ const OrmValidator 			     = require("./orm_argument/orm_validator");
 const TerminalArgumentsValidator = require("./terminal-arguments_validator");
 module.exports  = class InputManager{
 	constructor(terminal_arguments){
+		/* Validate entrys and get value*/
 		new TerminalArgumentsValidator(terminal_arguments);
 		this.Input_name 	= new NameValidator(terminal_arguments.name).Name;
 		this.Input_folder 	= new FolderValidator(terminal_arguments.folder).FolderPath;
 		this.Input_type 	= new TypeValidator(terminal_arguments.type).Type;
 		this.Input_orm		= new OrmValidator(terminal_arguments.orm).Orm;
 	}
-
 	getArray(){
+		/*
+		return an array with terminal_arguments
+		*/
 		return {
-			"name": this.Input_name,
+			"name"	: this.Input_name,
 			"folder":this.Input_folder,
-			"type":this.Input_type,
-			"orm":this.Input_orm
+			"type"	:this.Input_type,
+			"orm"	:this.Input_orm
 		};
 	}
 }
