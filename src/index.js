@@ -1,10 +1,10 @@
 const {Command} = require("commander");
 const program = new Command();
 
-const InputManager = require("./lib/input/input_manager");
+const InputManager 			= require("./lib/input/input_manager");
+const AppGenerator			= require("./lib/express_app_generator/app_generator");
 const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator");
 const MvcStructureGenerator = require("./lib/folder_structures/mvc_structure_generator");
-const AppGenerator			= require("./lib/express_app_generator/app_generator");
 program.version('0.0.1');
 
 program
@@ -12,7 +12,6 @@ program
 	.option("-n, --name <name>", 'project name')
 	.option("-f  --folder <folder>", "project path")
 	.option("-t  --type <type>", "project patter [mvc or api]")
-	.option("-o  --orm <orm>", "project orm [sequelize or mongoose]");
 program.parse(process.argv);
 
 const input = program.opts();
