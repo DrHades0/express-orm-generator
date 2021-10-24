@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const IndexCreator = require("./IndexCreator");
-const ApiAppGenerator = require("../express_app_generator/api/api_app_generator");
 module.exports = class ApiStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderPath = folderPath;
@@ -9,10 +8,10 @@ module.exports = class ApiStructureGenerator{
 		this.folderDir  = path.join(this.folderPath, this.folderName);
 
 		this.srcFolderPath = path.join(this.folderDir,"src");
-
+		this.apiFolderPath = path.join(this.srcFolderPath, "api");
 		this.CreateFolder();
 		this.CreateSrcFolder();
-		new ApiAppGenerator(this.apiFolderPath);
+		this.appPath = this.apiFolderPath
 	}
 
 
@@ -45,8 +44,6 @@ module.exports = class ApiStructureGenerator{
 			Create api, routes, middlewares, scripts and controller folder and
 			create app.js
 		*/
-		this.apiFolderPath = path.join(this.srcFolderPath, "api");
-
 		fs.mkdirSync(this.apiFolderPath);
 		this.CreateRoutesFolder();
 		this.CreateMiddlewaresFolder();
