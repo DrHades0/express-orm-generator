@@ -48,9 +48,13 @@ module.exports = class ApiStructureGenerator{
 		this.CreateMiddlewaresFolder();
 		this.CreateControllerFolder();
 		this.CreateServicesFolder();
+		this.CreateApiServicesFolder();
 		this.CreateExpressApp();
 	}
-
+	CreateApiServicesFolder(){
+		const apiServicesFolder_path = path.join(this.apiFolderPath, "apiServices");
+		fs.mkdirSync(apiServicesFolder_path);
+	}
 	CreateRoutesFolder(){
 		/*
 		 	Make routes folder with indexRouter
