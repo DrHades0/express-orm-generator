@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const IndexCreator = require("./IndexCreator");
+const MvcAppGenerator = require("../express_app_generator/mvc/mvc_app_generator");
 module.exports = class MvcStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderName = folderName;
@@ -17,6 +18,7 @@ module.exports = class MvcStructureGenerator{
 		this.CreateViewFolder();
 		this.CreateControllerFolder();
 		this.CreateModelFolder();
+		new MvcAppGenerator(this.srcFolder_Path);
 	}
 
 	CreateFolder(){
