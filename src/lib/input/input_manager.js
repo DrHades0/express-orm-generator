@@ -4,6 +4,7 @@ const TypeValidator 		     = require("./type_argument/type_validator");
 const OrmValidator 			     = require("./orm_argument/orm_validator");
 const TerminalArgumentsValidator = require("./terminal-arguments_validator");
 module.exports  = class InputManager{
+	/* take all terminal_arguments and validate all */
 	constructor(terminal_arguments){
 		/* Validate entrys and get value*/
 		new TerminalArgumentsValidator(terminal_arguments);

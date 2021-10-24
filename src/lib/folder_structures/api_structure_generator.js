@@ -2,6 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const IndexCreator = require("./IndexCreator");
 module.exports = class ApiStructureGenerator{
+	/*
+	take two arguments path and names
+	and create a complete folder structure with your index files in all folders
+	*/
 	constructor(folderPath, folderName){
 		this.folderPath = folderPath;
 		this.folderName = folderName;

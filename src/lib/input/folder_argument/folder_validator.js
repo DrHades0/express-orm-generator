@@ -4,6 +4,7 @@ const validator 	= require("validator");
 const isValidPath	= require("is-valid-path");
 const fs 			= require("fs")
 module.exports  = class FolderValidator{
+	/* validate folder clauses */
 	constructor(folder_argument){
 		this.FolderPath = folder_argument;
 		this.NotEmpty();
@@ -20,11 +21,7 @@ module.exports  = class FolderValidator{
 	}
 
 	IhavePermissionInFolderPath(){
-		// try{
-		// 	fs.accessSync(this.FolderPath, fs.constants.F_OK);
-		// }catch(error){
-		// 	throw new InvalidArgument("folder", "the path does not allow to be written");
-		// }
+
 		try{
 			fs.accessSync(this.FolderPath, fs.constants.R_OK | fs.constants.W_OK);
 		}catch(err){

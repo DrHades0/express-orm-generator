@@ -2,6 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const IndexCreator = require("./IndexCreator");
 module.exports = class MvcStructureGenerator{
+	/*
+		Create a mvc folder structure
+	*/
 	constructor(folderPath, folderName){
 		this.folderName = folderName;
 		this.folderPath = folderPath;
