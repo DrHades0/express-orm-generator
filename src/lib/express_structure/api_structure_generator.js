@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const IndexCreator = require("./IndexCreator");
 module.exports = class ApiStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderPath = folderPath;
@@ -36,6 +37,7 @@ module.exports = class ApiStructureGenerator{
 		*/
 		const coreFolderPath = path.join(this.srcFolderPath, "core");
 		fs.mkdirSync(coreFolderPath);
+		new IndexCreator(coreFolderPath, "Core");
 	}
 	CreateApiFolder(){
 		/*
@@ -43,10 +45,10 @@ module.exports = class ApiStructureGenerator{
 			create app.js
 		*/
 		this.apiFolderPath = path.join(this.srcFolderPath, "api");
+
 		fs.mkdirSync(this.apiFolderPath);
 		this.CreateRoutesFolder();
 		this.CreateMiddlewaresFolder();
-		this.CreateControllerFolder();
 		this.CreateServicesFolder();
 		this.CreateApiServicesFolder();
 		this.CreateExpressApp();
@@ -54,6 +56,8 @@ module.exports = class ApiStructureGenerator{
 	CreateApiServicesFolder(){
 		const apiServicesFolder_path = path.join(this.apiFolderPath, "apiServices");
 		fs.mkdirSync(apiServicesFolder_path);
+		new IndexCreator(apiServicesFolder_path, "ApiServices");
+
 	}
 	CreateRoutesFolder(){
 		/*
@@ -62,8 +66,8 @@ module.exports = class ApiStructureGenerator{
 		const routeFolderPath = path.join( this.apiFolderPath, "routes");
 		fs.mkdirSync(routeFolderPath);
 
-		const indexRouterPath = path.join(routeFolderPath, "indexRouter.js");
-		fs.writeFileSync(indexRouterPath, "");
+		new IndexCreator(routeFolderPath, "Routes");
+
 	}
 
 	CreateMiddlewaresFolder(){
@@ -72,16 +76,16 @@ module.exports = class ApiStructureGenerator{
 		*/
 		const middlewareRoutePath = path.join( this.apiFolderPath, "middlewares");
 		fs.mkdirSync(middlewareRoutePath);
-	}
 
-	CreateControllerFolder(){
-		const controllerFolderPath = path.join( this.apiFolderPath, "controllers");
-		fs.mkdirSync(controllerFolderPath);
+		new IndexCreator(routeFolderPath, "Middlewares");
+
 	}
 
 	CreateServicesFolder(){
 		const serviceFolderPath = path.join(this.apiFolderPath, "services");
-		fs.mkdirSync(serviceFolderPath)
+		fs.mkdirSync(serviceFolderPath);
+		new IndexCreator(routeFolderPath, "Services");
+
 	}
 	CreateExpressApp(){
 	}
@@ -90,8 +94,8 @@ module.exports = class ApiStructureGenerator{
 		/*
 			Create a index.js file in src folder
 		*/
-		const indexFile_Path = path.join(this.srcFolderPath, "index.js")
-		fs.writeFileSync(indexFile_Path, "");
+		new IndexCreator(this.srcFolderPath, "");
+
 	}
 
 }
