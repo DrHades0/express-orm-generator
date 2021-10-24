@@ -62,7 +62,7 @@ describe("api project generator test",()=>{
 				/*
 					verify if indexMiddleware.js created
 				*/
-				const indexMiddleware_path = path.join(middlewareFolder_path, "indexMiddleware.js");
+				const indexMiddleware_path = path.join(middlewareFolder_path, "indexMiddlewares.js");
 				const state = fs.existsSync(indexMiddleware_path);
 				assert.equal(state, true);
 			})

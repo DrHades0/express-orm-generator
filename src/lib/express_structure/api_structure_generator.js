@@ -77,14 +77,14 @@ module.exports = class ApiStructureGenerator{
 		const middlewareRoutePath = path.join( this.apiFolderPath, "middlewares");
 		fs.mkdirSync(middlewareRoutePath);
 
-		new IndexCreator(routeFolderPath, "Middlewares");
+		new IndexCreator(middlewareRoutePath, "Middlewares");
 
 	}
 
 	CreateServicesFolder(){
 		const serviceFolderPath = path.join(this.apiFolderPath, "services");
 		fs.mkdirSync(serviceFolderPath);
-		new IndexCreator(routeFolderPath, "Services");
+		new IndexCreator(serviceFolderPath, "Services");
 
 	}
 	CreateExpressApp(){
