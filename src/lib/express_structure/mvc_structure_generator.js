@@ -1,12 +1,17 @@
 const fs = require("fs");
 const path = require("path");
+const IndexCreator = require("IndexCreator");
 module.exports = class MvcStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderName = folderName;
 		this.folderPath = folderPath;
 		this.folderDir  = path.join(this.folderPath, this.folderName);
 
-		this.srcFolderPath = path.join(this.folderDir, "src");
+		this.srcFolder_Path = path.join(this.folderDir, "src");
+		this.controllerFolder_Path = path.join(this.srcFolderPath, "controller");
+		this.modelFolder_Path = path.join(this.srcFolderPath, "model");
+		this.viewFolder_Path = path.join(this.srcFolderPath, "view");
+
 		this.CreateFolder();
 		this.CreateSrcFolder();
 		this.CreateViewFolder();
@@ -25,26 +30,29 @@ module.exports = class MvcStructureGenerator{
 			create src folder
 		*/
 		fs.mkdirSync(this.srcFolderPath);
+		new IndexCreator(this.srcFolderPath, "");
 	}
 	CreateViewFolder(){
 		/*
 			create the view folder
 		*/
-		const viewFolder_path = path.join(this.srcFolderPath, "view");
-		fs.mkdirSync(viewFolder_path)
+		fs.mkdirSync(this.viewFolder_Path);
+		new IndexCreator(this.viewFolder_Path, "view");
 	}
 	CreateControllerFolder(){
 		/*
-			create controller folder
+			create controller foldermodelFolder_path
 			*/
-		const controllerFolder_path = path.join(this.srcFolderPath, "controller");
-		fs.mkdirSync(controllerFolder_path)
+		fs.mkdirSync(this.controllerFolder_Path);
+		new IndexCreator(this.srcFolderPath, "controller");
+
 	}
 	CreateModelFolder(){
 		/*
-			create model folder
-			*/
-		const modelFolder_path = path.join(this.srcFolderPath, "model")
-		fs.mkdirSync(modelFolder_path)
+			create model folder and indexModel.js
+		*/
+		fs.mkdirSync(this.modelFolder_Path);
+		new IndexCreator(this.srcFolderPath, "model");
+
 	}
 }
