@@ -10,6 +10,6 @@ module.exports = class ApiAppGenerator{
 	}
 	CreateApiFile(){
 		const appFileContent = fs.readFileSync("./api_app_template.txt",{encoding:'utf8', flag:'r'});
-		fs.writeFileSync(this.appFileContent, appFileContent);
+		fs.writeFileSync(this.AppFile_path, appFileContent);
 	}
 }
