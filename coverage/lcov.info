@@ -1,5 +1,5 @@
 TN:
-SF:src/lib/express_structure/IndexCreator.js
+SF:src/lib/folder_structures/IndexCreator.js
 FN:4,(anonymous_0)
 FN:11,(anonymous_1)
 FNF:2
@@ -19,7 +19,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/lib/express_structure/api_structure_generator.js
+SF:src/lib/folder_structures/api_structure_generator.js
 FN:5,(anonymous_0)
 FN:18,(anonymous_1)
 FN:23,(anonymous_2)
@@ -88,7 +88,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/lib/express_structure/mvc_structure_generator.js
+SF:src/lib/folder_structures/mvc_structure_generator.js
 FN:5,(anonymous_0)
 FN:22,(anonymous_1)
 FN:28,(anonymous_2)

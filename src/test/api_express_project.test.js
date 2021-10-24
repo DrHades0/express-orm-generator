@@ -1,4 +1,4 @@
-const ApiStructureGenerator   = require("../lib/express_structure/api_structure_generator");
+const ApiStructureGenerator   = require("../lib/folder_structures/api_structure_generator");
 const RemoveProjectFolder 	  = require("./utils/remove_project_folder");
 const describe = require("mocha").describe;
 const assert = require("assert");

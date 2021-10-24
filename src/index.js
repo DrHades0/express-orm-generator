@@ -2,7 +2,7 @@ const {Command} = require("commander");
 const program = new Command();
 
 const InputManager = require("./lib/input/input_manager");
-const ApiStructureGenerator = require("./lib/express_structure/api_structure_generator")
+const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator")
 program.version('0.0.1');
 
 program

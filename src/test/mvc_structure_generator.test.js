@@ -1,4 +1,4 @@
-const MvcStructureGenerator   = require("../lib/express_structure/mvc_structure_generator");
+const MvcStructureGenerator   = require("../lib/folder_structures/mvc_structure_generator");
 const RemoveProjectFolder 	  = require("./utils/remove_project_folder");
 const assert = require("assert");
 const fs 	 = require("fs");
