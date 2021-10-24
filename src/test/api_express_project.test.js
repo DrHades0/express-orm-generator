@@ -1,5 +1,6 @@
 const ApiStructureGenerator   = require("../lib/express_structure/api_structure_generator");
 const RemoveProjectFolder 	  = require("./utils/remove_project_folder");
+const describe = require("mocha").describe;
 const assert = require("assert");
 const fs 	 = require("fs");
 const path 	 = require("path");
@@ -11,6 +12,7 @@ describe("api project generator test",()=>{
 	const test_path 	  = path.join("src","test");
 	const workFolder_Path = path.join(test_path,test_folderName);
 	const srcFolder_path  = path.join(workFolder_Path, "src");
+	const apiFolder_path  = path.join(srcFolder_path, "api")
 	RemoveProjectFolder(workFolder_Path);
 	new ApiStructureGenerator(test_path,test_folderName);
 	it("project folder created",()=>{
@@ -36,7 +38,8 @@ describe("api project generator test",()=>{
 			/*
 				verify middlewares folder created
 			*/
-			const middlewareFolder_path = path.join(srcFolder_path, "middlewares");
+			const middlewareFolder_path = path.join(apiFolder_path, "middlewares/");
+			console.log(middlewareFolder_path)
 			const state = fs.existsSync(middlewareFolder_path);
 			assert.equal(state, true);
 			it("middleware indexMiddleware.js created", ()=>{
@@ -52,7 +55,7 @@ describe("api project generator test",()=>{
 			/*
 				verify if routes folder is created
 			*/
-			const routesFolder_path = path.join(srcFolder_path, "routes");
+			const routesFolder_path = path.join(apiFolder_path, "routes");
 			const state = fs.existsSync(routesFolder_path);
 
 			assert.equal(state, true);
@@ -61,7 +64,7 @@ describe("api project generator test",()=>{
 			/*
 				verify if services folder is created
 			*/
-			const servicesFolder_path = path.join(srcFolder_path, "services");
+			const servicesFolder_path = path.join(apiFolder_path, "services");
 			const state = fs.existsSync(servicesFolder_path);
 
 			assert.equal(state, true);
@@ -70,7 +73,7 @@ describe("api project generator test",()=>{
 			/*
 				verify if apiServices folder is created
 			*/
-			const servicesFolder_path = path.join(srcFolder_path, "apiServices");
+			const servicesFolder_path = path.join(apiFolder_path, "apiServices");
 			const state = fs.existsSync(servicesFolder_path);
 
 			assert.equal(state, true);
