@@ -24,7 +24,7 @@ describe("api project generator test",()=>{
 		/*
 			verfiy correct core folder creation
 		*/
-		const coreFolder_path = path.join(workFolder_Path, "core");
+		const coreFolder_path = path.join(srcFolder_path, "core");
 		const state = fs.existsSync(coreFolder_path);
 		assert.equal(state, true);
 	});
