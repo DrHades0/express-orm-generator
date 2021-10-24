@@ -1,16 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const IndexCreator = require("IndexCreator");
+const IndexCreator = require("./IndexCreator");
 module.exports = class MvcStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderName = folderName;
 		this.folderPath = folderPath;
 		this.folderDir  = path.join(this.folderPath, this.folderName);
 
-		this.srcFolder_Path = path.join(this.folderDir, "src");
-		this.controllerFolder_Path = path.join(this.srcFolderPath, "controller");
-		this.modelFolder_Path = path.join(this.srcFolderPath, "model");
-		this.viewFolder_Path = path.join(this.srcFolderPath, "view");
+		this.srcFolder_Path 		= path.join(this.folderDir, "src");
+		this.controllerFolder_Path 	= path.join(this.srcFolder_Path, "controller");
+		this.modelFolder_Path 		= path.join(this.srcFolder_Path, "model");
+		this.viewFolder_Path 		= path.join(this.srcFolder_Path, "view");
 
 		this.CreateFolder();
 		this.CreateSrcFolder();
@@ -29,22 +29,23 @@ module.exports = class MvcStructureGenerator{
 		/*
 			create src folder
 		*/
-		fs.mkdirSync(this.srcFolderPath);
-		new IndexCreator(this.srcFolderPath, "");
+		const indexFilePath = path.join(this.srcFolder_Path, "index.js")
+		fs.mkdirSync(this.srcFolder_Path);
+		fs.writeFileSync(indexFilePath,"");
 	}
 	CreateViewFolder(){
 		/*
 			create the view folder
 		*/
 		fs.mkdirSync(this.viewFolder_Path);
-		new IndexCreator(this.viewFolder_Path, "view");
+		new IndexCreator(this.viewFolder_Path, "View");
 	}
 	CreateControllerFolder(){
 		/*
 			create controller foldermodelFolder_path
 			*/
 		fs.mkdirSync(this.controllerFolder_Path);
-		new IndexCreator(this.srcFolderPath, "controller");
+		new IndexCreator(this.controllerFolder_Path, "Controller");
 
 	}
 	CreateModelFolder(){
@@ -52,7 +53,7 @@ module.exports = class MvcStructureGenerator{
 			create model folder and indexModel.js
 		*/
 		fs.mkdirSync(this.modelFolder_Path);
-		new IndexCreator(this.srcFolderPath, "model");
+		new IndexCreator(this.modelFolder_Path, "Model");
 
 	}
 }
