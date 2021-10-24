@@ -20,13 +20,21 @@ describe("api project generator test",()=>{
 		const state = fs.existsSync(workFolder_Path);
 		assert.equal(state, true);
 	});
-	it("core folder created", ()=>{
+	describe("core folder created", ()=>{
 		/*
 			verfiy correct core folder creation
 		*/
 		const coreFolder_path = path.join(srcFolder_path, "core");
 		const state = fs.existsSync(coreFolder_path);
 		assert.equal(state, true);
+		it("middleware indexMiddleware.js created", ()=>{
+			/*
+				verify if indexMiddleware.js created
+			*/
+			const indexMiddleware_path = path.join(middlewareFolder_path, "indexMiddleware.js");
+			const state = fs.existsSync(indexMiddleware_path);
+			assert.equal(state, true);
+		})
 	});
 	describe("src folder created", ()=>{
 		/*
@@ -34,6 +42,14 @@ describe("api project generator test",()=>{
 		*/
 		const state = fs.existsSync(srcFolder_path);
 		assert.equal(state, true);
+		it("src index.js created", ()=>{
+			/*
+				verify if indexMiddleware.js created
+			*/
+			const index_path = path.join(srcFolder_path, "index.js");
+			const state = fs.existsSync(index_path);
+			assert.equal(state, true);
+		})
 		describe("middleware folder created", ()=>{
 			/*
 				verify middlewares folder created
@@ -59,6 +75,14 @@ describe("api project generator test",()=>{
 			const state = fs.existsSync(routesFolder_path);
 
 			assert.equal(state, true);
+			it("routes indexRoutes.js created", ()=>{
+				/*
+					verify if indexMiddleware.js created
+				*/
+				const indexRoutes_path = path.join(routesFolder_path, "indexRoutes.js");
+				const state = fs.existsSync(indexRoutes_path);
+				assert.equal(state, true);
+			})
 		});
 		describe("services folder created", ()=>{
 			/*
@@ -68,15 +92,31 @@ describe("api project generator test",()=>{
 			const state = fs.existsSync(servicesFolder_path);
 
 			assert.equal(state, true);
+			it("services indexServices.js created", ()=>{
+				/*
+					verify if indexMiddleware.js created
+				*/
+				const indexServices_path = path.join(servicesFolder_path, "indexServices.js");
+				const state = fs.existsSync(indexServices_path);
+				assert.equal(state, true);
+			})
 		});
 		describe("apiServices folder created", ()=>{
 			/*
 				verify if apiServices folder is created
 			*/
-			const servicesFolder_path = path.join(apiFolder_path, "apiServices");
-			const state = fs.existsSync(servicesFolder_path);
+			const apiServicesFolder_path = path.join(apiFolder_path, "apiServices");
+			const state = fs.existsSync(apiServicesFolder_path);
 
 			assert.equal(state, true);
+			it("apiServices indexApiServices.js created", ()=>{
+				/*
+					verify if indexMiddleware.js created
+				*/
+				const indexApiServices_path = path.join(apiServicesFolder_path, "indexApiServices.js");
+				const state = fs.existsSync(indexApiServices_path);
+				assert.equal(state, true);
+			})
 		});
 	});
 })
