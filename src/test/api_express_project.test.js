@@ -12,7 +12,8 @@ describe("api project generator test",()=>{
 	const test_path 	  = path.join("src","test");
 	const workFolder_Path = path.join(test_path,test_folderName);
 	const srcFolder_path  = path.join(workFolder_Path, "src");
-	const apiFolder_path  = path.join(srcFolder_path, "api")
+	const apiFolder_path  = path.join(srcFolder_path, "api");
+	const coreFolder_path = path.join(srcFolder_path, "core");
 	RemoveProjectFolder(workFolder_Path);
 	new ApiStructureGenerator(test_path,test_folderName);
 	it("project folder created",()=>{
@@ -24,15 +25,14 @@ describe("api project generator test",()=>{
 		/*
 			verfiy correct core folder creation
 		*/
-		const coreFolder_path = path.join(srcFolder_path, "core");
 		const state = fs.existsSync(coreFolder_path);
 		assert.equal(state, true);
-		it("middleware indexMiddleware.js created", ()=>{
+		it("core indexCore.js created", ()=>{
 			/*
-				verify if indexMiddleware.js created
+				verify if indexCore.js created
 			*/
-			const indexMiddleware_path = path.join(middlewareFolder_path, "indexMiddleware.js");
-			const state = fs.existsSync(indexMiddleware_path);
+			const indexCore_path = path.join(coreFolder_path, "indexCore.js");
+			const state = fs.existsSync(indexCore_path);
 			assert.equal(state, true);
 		})
 	});
@@ -44,7 +44,7 @@ describe("api project generator test",()=>{
 		assert.equal(state, true);
 		it("src index.js created", ()=>{
 			/*
-				verify if indexMiddleware.js created
+				verify if srcIndex.js created
 			*/
 			const index_path = path.join(srcFolder_path, "index.js");
 			const state = fs.existsSync(index_path);
@@ -77,7 +77,7 @@ describe("api project generator test",()=>{
 			assert.equal(state, true);
 			it("routes indexRoutes.js created", ()=>{
 				/*
-					verify if indexMiddleware.js created
+					verify if indexRoutes.js file created
 				*/
 				const indexRoutes_path = path.join(routesFolder_path, "indexRoutes.js");
 				const state = fs.existsSync(indexRoutes_path);
@@ -94,7 +94,7 @@ describe("api project generator test",()=>{
 			assert.equal(state, true);
 			it("services indexServices.js created", ()=>{
 				/*
-					verify if indexMiddleware.js created
+					verify if indexServices.js created
 				*/
 				const indexServices_path = path.join(servicesFolder_path, "indexServices.js");
 				const state = fs.existsSync(indexServices_path);
@@ -111,7 +111,7 @@ describe("api project generator test",()=>{
 			assert.equal(state, true);
 			it("apiServices indexApiServices.js created", ()=>{
 				/*
-					verify if indexMiddleware.js created
+					verify if indexApiServices.js created
 				*/
 				const indexApiServices_path = path.join(apiServicesFolder_path, "indexApiServices.js");
 				const state = fs.existsSync(indexApiServices_path);
