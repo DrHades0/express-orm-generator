@@ -2,7 +2,8 @@ const {Command} = require("commander");
 const program = new Command();
 
 const InputManager = require("./lib/input/input_manager");
-const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator")
+const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator");
+const MvcStructureGenerator = require("./lib/folder_structures/mvc_structure_generator");
 program.version('0.0.1');
 
 program
@@ -17,4 +18,10 @@ const input = program.opts();
 const inputManager = new InputManager(input);
 const args = inputManager.getArray();
 
-new ApiStructureGenerator(args.folder,args.name);
+
+if(args.type == "api"){
+	new ApiStructureGenerator(args.folder,args.name);
+}
+if(args.type == "mvc"){
+	new MvcStructureGenerator(args.folder, args.name);
+}

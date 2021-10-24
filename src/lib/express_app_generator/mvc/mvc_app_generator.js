@@ -4,12 +4,14 @@ module.exports = class MvcAppGenerator{
 	/*
 		create an app.js file with all the basic settings
 	*/
-	constructor(path){
-		this.AppFile_path = path.join(path, "app.js");
-		this.CreateApiFile();
+	constructor(projectPath){
+		this.AppFile_path = path.join(projectPath, "app.js");
+		this.CreateAppFile();
 	}
-	CreateApiFile(){
-		const appFileContent = fs.readFileSync("./mvc_app_template.txt",{encoding:'utf8', flag:'r'});
+	CreateAppFile(){
+		const apiTemplate_path = path.join(__dirname, "mvc_app_template.txt")
+
+		const appFileContent = fs.readFileSync(apiTemplate_path,{encoding:'utf8', flag:'r'});
 		fs.writeFileSync(this.AppFile_path, appFileContent);
 	}
 }

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const IndexCreator = require("./IndexCreator");
+const ApiAppGenerator = require("../express_app_generator/api/api_app_generator");
 module.exports = class ApiStructureGenerator{
 	constructor(folderPath, folderName){
 		this.folderPath = folderPath;
@@ -11,7 +12,7 @@ module.exports = class ApiStructureGenerator{
 
 		this.CreateFolder();
 		this.CreateSrcFolder();
-		// this.WriteExpressApp();
+		new ApiAppGenerator(this.apiFolderPath);
 	}
 
 
