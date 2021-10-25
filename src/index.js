@@ -1,10 +1,12 @@
 const {Command} = require("commander");
 const program = new Command();
+const InputManager 			= require("./lib/input/input_manager");
+const AppGenerator			= require("./lib/express_app_generator/app_generator");
+const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator");
+const MvcStructureGenerator = require("./lib/folder_structures/mvc_structure_generator");
+const ProjectManager 		= require("./lib/ProjectManager");
 module.exports = function Main(){
-	const InputManager 			= require("./lib/input/input_manager");
-	const AppGenerator			= require("./lib/express_app_generator/app_generator");
-	const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator");
-	const MvcStructureGenerator = require("./lib/folder_structures/mvc_structure_generator");
+
 	program.version('0.0.1');
 
 	program
@@ -19,12 +21,6 @@ module.exports = function Main(){
 	const args = inputManager.getArray();
 
 
-	if(args.type == "api"){
-		const appProject = new ApiStructureGenerator(args.folder,args.name);
-
-	}
-	if(args.type == "mvc"){
-		const appProject = new MvcStructureGenerator(args.folder,args.name);
-	}
-	new AppGenerator(appProject.appPath, args.type);
+	const projectManager = new ProjectManager(args);
+	new AppGenerator(projectManager.appPath, args.type);
 }
