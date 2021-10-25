@@ -1,5 +1,5 @@
 {
-  "name": "express-orm-generator",
+  "name": "express-project-generator",
   "version": "0.0.1",
   "description": "A project generator with orm and two project models: vmc & api",
   "main": "src/index.js",
@@ -34,5 +34,8 @@
   "devDependencies": {
     "mocha": "^5.2.0",
     "nyc": "^13.1.0"
-  }
+},
+	"bin":{
+		"create-project":"cli.js"
+	}
 }
