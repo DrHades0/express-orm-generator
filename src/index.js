@@ -4,7 +4,7 @@ const InputManager 			= require("./lib/input/input_manager");
 const AppGenerator			= require("./lib/express_app_generator/app_generator");
 const ApiStructureGenerator = require("./lib/folder_structures/api_structure_generator");
 const MvcStructureGenerator = require("./lib/folder_structures/mvc_structure_generator");
-const ProjectManager 		= require("./lib/ProjectManager");
+const ProjectManager 		= require("./lib/project_manager");
 module.exports = function Main(){
 
 	program.version('0.0.1');
