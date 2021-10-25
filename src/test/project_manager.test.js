@@ -1,5 +1,6 @@
 const path 	= require("path");
 const fs	= require("fs");
+const assert= require('assert')
 const ProjectManager = require("../lib/project_manager");
 const RemoveProjectFolder = require("./utils/remove_project_folder");
 describe("integration ProjectManager test",()=>{

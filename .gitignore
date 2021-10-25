@@ -4,3 +4,4 @@ node_modules/
 coverage/
 src/test/mvc_test_folder
 src/test/api_test_folder
+src/test/project_manager_test
