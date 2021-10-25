@@ -16,7 +16,7 @@ describe("integration ProjectManager test",()=>{
 
 		assert.equal(state, true);
 	});
-	it("if type argument is mvc", ()=>{
+	it("if type argument is api", ()=>{
 		const name = "apiFolder"
 		const arguments = {name:name, folder:testDir, type:"api"};
 		const pathToTest = path.join(testDir, name);
