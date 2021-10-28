@@ -18,5 +18,5 @@ Once installed successfully globally, the command to run is:
 
 
 ```bash
-  generate-project
+  create-project
 ```
