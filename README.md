@@ -1,5 +1,5 @@
 # express-project-generator
-An express basic folder structure generator for reduce the loss time
+An express basic folder structure generator
 
 
 
